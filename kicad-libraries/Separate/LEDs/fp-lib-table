@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name spectrometer_core)(type KiCad)(uri ${KIPRJMOD}/../../spectrometer_core.pretty)(options "")(descr ""))
+)

@@ -1,0 +1,438 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 15748 13780
+encoding utf-8
+Sheet 1 1
+Title "Spectrometer Full System"
+Date "2021-06-02"
+Rev "2.2"
+Comp "Team Spectrometer"
+Comment1 "0:uC, 1:Bt, 2+3:IR, 4:TIA, 5:Pwr"
+Comment2 "First digit in reference value indicates subsection"
+Comment3 "All bypass capacitors currenty use mfg. suggested values"
+Comment4 "Most current revision listed below; specific subsection revisions written in respective notes"
+$EndDescr
+$Comp
+L Device:Battery_Cell BT1
+U 1 1 60932FFC
+P 3250 6100
+F 0 "BT1" H 3100 6150 50  0000 R CNN
+F 1 "Battery_Cell" H 3100 6050 50  0000 R CNN
+F 2 "" V 3250 6160 50  0001 C CNN
+F 3 "~" V 3250 6160 50  0001 C CNN
+	1    3250 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L spectrometer_core:PowerBoost1000C U51
+U 1 1 60936121
+P 7200 6100
+F 0 "U51" H 7200 5800 50  0000 C CNN
+F 1 "PowerBoost1000C" H 7200 5700 50  0000 C CNN
+F 2 "spectrometer_core:Powerboost1000C" H 8025 6400 50  0001 C CNN
+F 3 "https://learn.adafruit.com/adafruit-powerboost-1000c-load-share-usb-charge-boost" H 8025 6400 50  0001 C CNN
+F 4 "Boost converter module" H 7500 5500 50  0000 C CNN "Desc"
+F 5 "+BATT to +5V" H 7500 5400 50  0000 C CNN "Config"
+	1    7200 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 60945965
+P 10300 6400
+F 0 "#PWR0101" H 10300 6150 50  0001 C CNN
+F 1 "GND" H 10305 6227 50  0000 C CNN
+F 2 "" H 10300 6400 50  0001 C CNN
+F 3 "" H 10300 6400 50  0001 C CNN
+	1    10300 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 60945F43
+P 7650 6400
+F 0 "#PWR0102" H 7650 6150 50  0001 C CNN
+F 1 "GND" H 7655 6227 50  0000 C CNN
+F 2 "" H 7650 6400 50  0001 C CNN
+F 3 "" H 7650 6400 50  0001 C CNN
+	1    7650 6400
+	1    0    0    -1  
+$EndComp
+NoConn ~ 7550 6100
+NoConn ~ 6850 6200
+NoConn ~ 6850 6300
+NoConn ~ 7550 6000
+NoConn ~ 6850 5900
+NoConn ~ 6850 6100
+Wire Wire Line
+	7550 6200 7650 6200
+Wire Wire Line
+	7650 6200 7650 6300
+Wire Wire Line
+	7550 6300 7650 6300
+Connection ~ 7650 6300
+Wire Wire Line
+	7650 6300 7650 6400
+$Comp
+L Connector:Conn_01x02_Female J5B1
+U 1 1 6095ED74
+P 3950 6000
+F 0 "J5B1" H 3900 5850 50  0000 R CNN
+F 1 "C_01x02" H 3950 6150 50  0000 C CNN
+F 2 "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal" H 3950 6000 50  0001 C CNN
+F 3 "~" H 3950 6000 50  0001 C CNN
+	1    3950 6000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R50
+U 1 1 60D05F54
+P 5500 6200
+F 0 "R50" H 5568 6246 50  0000 L CNN
+F 1 "470k" H 5568 6155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5430 6200 50  0001 C CNN
+F 3 "~" H 5500 6200 50  0001 C CNN
+	1    5500 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R51
+U 1 1 60D101F3
+P 5850 6200
+F 0 "R51" H 5918 6246 50  0000 L CNN
+F 1 "100k" H 5918 6155 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5780 6200 50  0001 C CNN
+F 3 "~" H 5850 6200 50  0001 C CNN
+	1    5850 6200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 6350 6250 6350
+Wire Wire Line
+	6250 6350 6250 6300
+Wire Wire Line
+	5850 6050 5850 6000
+Wire Wire Line
+	5850 6000 6050 6000
+Wire Wire Line
+	6450 6000 6850 6000
+Wire Wire Line
+	6250 6400 6250 6350
+Connection ~ 6250 6350
+Wire Wire Line
+	5950 6600 5500 6600
+$Comp
+L spectrometer_core:LMS33460 U50
+U 1 1 60933AAC
+P 5050 6700
+F 0 "U50" H 5050 7040 50  0000 C CNN
+F 1 "LMS33460" H 5050 6949 50  0000 C CNN
+F 2 "spectrometer_core:SC70" H 5050 6350 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/lms33460.pdf" H 5050 6500 50  0001 C CNN
+F 4 "3V undervoltage detector" H 5050 6450 50  0000 C CNN "Desc"
+	1    5050 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 6350 5500 6600
+Connection ~ 5500 6600
+Wire Wire Line
+	5500 6600 5350 6600
+Wire Wire Line
+	5850 6000 5500 6000
+Wire Wire Line
+	5500 6000 5500 6050
+Connection ~ 5850 6000
+Wire Wire Line
+	4150 6100 4300 6100
+Connection ~ 4300 6850
+Wire Wire Line
+	4300 6750 4300 6850
+Wire Wire Line
+	4750 6750 4300 6750
+Wire Wire Line
+	4300 6850 4300 6950
+Wire Wire Line
+	4750 6850 4300 6850
+$Comp
+L power:GND #PWR0124
+U 1 1 6095D897
+P 4300 6950
+F 0 "#PWR0124" H 4300 6700 50  0001 C CNN
+F 1 "GND" H 4305 6777 50  0000 C CNN
+F 2 "" H 4300 6950 50  0001 C CNN
+F 3 "" H 4300 6950 50  0001 C CNN
+	1    4300 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 6100 4300 6750
+Connection ~ 4300 6750
+Wire Wire Line
+	4150 6000 4550 6000
+Connection ~ 5500 6000
+Wire Wire Line
+	4550 6000 4550 6600
+Wire Wire Line
+	4550 6600 4750 6600
+Connection ~ 4550 6000
+Wire Wire Line
+	3250 5900 3750 5900
+Wire Wire Line
+	3750 5900 3750 6000
+Wire Wire Line
+	3250 6200 3750 6200
+Wire Wire Line
+	3750 6200 3750 6100
+$Comp
+L power:GND #PWR0125
+U 1 1 60DF4732
+P 6250 6950
+F 0 "#PWR0125" H 6250 6700 50  0001 C CNN
+F 1 "GND" H 6255 6777 50  0000 C CNN
+F 2 "" H 6250 6950 50  0001 C CNN
+F 3 "" H 6250 6950 50  0001 C CNN
+	1    6250 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 6800 6250 6950
+$Comp
+L Connector:Conn_01x02_Male JxB2
+U 1 1 60C6B8A4
+P 3950 6000
+F 0 "JxB2" H 3950 5850 50  0000 L CNN
+F 1 "C_01x02" H 3950 6150 50  0000 C CNN
+F 2 "" H 3950 6000 50  0001 C CNN
+F 3 "~" H 3950 6000 50  0001 C CNN
+	1    3950 6000
+	-1   0    0    -1  
+$EndComp
+Text Notes 4350 7550 0    50   ~ 0
+Power, Ver 1.1. Revisions from 1.0:\nSpecified FETs\nAdded power switch\nAdded connectors to allow multi-board design
+$Comp
+L Device:CP1_Small C50
+U 1 1 60AC77EE
+P 9850 6150
+F 0 "C50" H 9750 6200 50  0000 R CNN
+F 1 "10u" H 9750 6100 50  0000 R CNN
+F 2 "Capacitor_SMD:CP_Elec_4x3" H 9850 6150 50  0001 C CNN
+F 3 "~" H 9850 6150 50  0001 C CNN
+	1    9850 6150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10550 5900 10800 5900
+Wire Wire Line
+	10300 6150 10300 6400
+$Comp
+L spectrometer_core:LM1117 U52
+U 1 1 60933507
+P 10300 5900
+F 0 "U52" H 10350 5700 50  0000 L CNN
+F 1 "LM1117" H 10350 5600 50  0000 L CNN
+F 2 "spectrometer_core:SOT-223" H 10300 5500 50  0001 C CNN
+F 3 "" H 10300 5850 50  0001 C CNN
+	1    10300 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0137
+U 1 1 60B16215
+P 9850 6400
+F 0 "#PWR0137" H 9850 6150 50  0001 C CNN
+F 1 "GND" H 9855 6227 50  0000 C CNN
+F 2 "" H 9850 6400 50  0001 C CNN
+F 3 "" H 9850 6400 50  0001 C CNN
+	1    9850 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0138
+U 1 1 60B16707
+P 10800 6400
+F 0 "#PWR0138" H 10800 6150 50  0001 C CNN
+F 1 "GND" H 10805 6227 50  0000 C CNN
+F 2 "" H 10800 6400 50  0001 C CNN
+F 3 "" H 10800 6400 50  0001 C CNN
+	1    10800 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP1_Small C51
+U 1 1 60B16E0D
+P 10800 6150
+F 0 "C51" H 10700 6200 50  0000 R CNN
+F 1 "100u" H 10700 6100 50  0000 R CNN
+F 2 "Capacitor_SMD:CP_Elec_5x4.5" H 10800 6150 50  0001 C CNN
+F 3 "~" H 10800 6150 50  0001 C CNN
+	1    10800 6150
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10800 5900 10800 6050
+Connection ~ 10800 5900
+Wire Wire Line
+	10800 6250 10800 6400
+Wire Wire Line
+	9850 5900 9850 6050
+Connection ~ 9850 5900
+Wire Wire Line
+	9850 5900 10050 5900
+Wire Wire Line
+	9850 6250 9850 6400
+$Comp
+L Device:Q_NMOS_GSD Q51
+U 1 1 60E98F5F
+P 6150 6600
+F 0 "Q51" H 6356 6646 50  0000 L CNN
+F 1 "SSM3K127TU" H 6356 6555 50  0000 L CNN
+F 2 "spectrometer_core:UFM-3" H 6350 6700 50  0001 C CNN
+F 3 "~" H 6150 6600 50  0001 C CNN
+	1    6150 6600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Q_PMOS_GSD Q50
+U 1 1 60EA0A5C
+P 6250 6100
+F 0 "Q50" V 6593 6100 50  0000 C CNN
+F 1 "SSM3J372R" V 6502 6100 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 6450 6200 50  0001 C CNN
+F 3 "~" H 6250 6100 50  0001 C CNN
+	1    6250 6100
+	0    1    -1   0   
+$EndComp
+$Comp
+L Switch:SW_DPST SW50
+U 1 1 6115CB87
+P 8650 5800
+F 0 "SW50" H 8650 6125 50  0000 C CNN
+F 1 "Power" H 8650 6034 50  0000 C CNN
+F 2 "" H 8650 5800 50  0001 C CNN
+F 3 "~" H 8650 5800 50  0001 C CNN
+	1    8650 5800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 5900 9850 5900
+Wire Wire Line
+	4550 6000 5500 6000
+Wire Wire Line
+	4550 6000 4550 5700
+Wire Wire Line
+	4550 5700 7850 5700
+$Comp
+L Connector:Conn_01x04_Male J50
+U 1 1 614FBF7A
+P 11600 5900
+F 0 "J50" H 11750 6050 50  0000 R CNN
+F 1 "C_01x04" H 11600 6150 50  0000 C CNN
+F 2 "spectrometer_core:1x04_Vert_P2.00_Molex_Micro-Latch" H 11600 5900 50  0001 C CNN
+F 3 "~" H 11600 5900 50  0001 C CNN
+	1    11600 5900
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0113
+U 1 1 61669BDD
+P 11300 6400
+F 0 "#PWR0113" H 11300 6150 50  0001 C CNN
+F 1 "GND" H 11305 6227 50  0000 C CNN
+F 2 "" H 11300 6400 50  0001 C CNN
+F 3 "" H 11300 6400 50  0001 C CNN
+	1    11300 6400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11400 6000 11300 6000
+Wire Wire Line
+	11300 6000 11300 6400
+Wire Wire Line
+	11400 5900 10800 5900
+Wire Wire Line
+	9850 5800 9850 5900
+Wire Wire Line
+	9850 5800 11400 5800
+$Comp
+L Connector:Conn_01x02_Female J52
+U 1 1 6217F2B0
+P 9150 5750
+F 0 "J52" H 9100 5600 50  0000 R CNN
+F 1 "C_01x02" H 9150 5900 50  0000 C CNN
+F 2 "spectrometer_core:1x02_Vert_P2.00_Molex_Micro-Latch" H 9150 5750 50  0001 C CNN
+F 3 "~" H 9150 5750 50  0001 C CNN
+	1    9150 5750
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male JxB1
+U 1 1 6217F2B6
+P 9150 5750
+F 0 "JxB1" H 9150 5600 50  0000 L CNN
+F 1 "C_01x02" H 9150 5900 50  0000 C CNN
+F 2 "" H 9150 5750 50  0001 C CNN
+F 3 "~" H 9150 5750 50  0001 C CNN
+	1    9150 5750
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	9450 5700 11400 5700
+Wire Wire Line
+	9450 5700 9450 5750
+Wire Wire Line
+	9450 5750 9350 5750
+Wire Wire Line
+	9450 5900 9450 5850
+Wire Wire Line
+	9450 5850 9350 5850
+Wire Wire Line
+	8850 5700 8850 5750
+Wire Wire Line
+	8850 5750 8950 5750
+Wire Wire Line
+	8950 5850 8850 5850
+Wire Wire Line
+	8850 5850 8850 5900
+$Comp
+L Connector:Conn_01x02_Male JxB0
+U 1 1 62377B8E
+P 8150 5750
+F 0 "JxB0" H 8150 5600 50  0000 L CNN
+F 1 "C_01x02" H 8150 5900 50  0000 C CNN
+F 2 "" H 8150 5750 50  0001 C CNN
+F 3 "~" H 8150 5750 50  0001 C CNN
+	1    8150 5750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 5700 7850 5750
+Wire Wire Line
+	8350 5750 8450 5750
+Wire Wire Line
+	8450 5750 8450 5700
+Wire Wire Line
+	8350 5850 8450 5850
+Wire Wire Line
+	8450 5850 8450 5900
+Wire Wire Line
+	7950 5850 7850 5850
+Wire Wire Line
+	7850 5850 7850 5900
+Wire Wire Line
+	7850 5900 7550 5900
+Wire Wire Line
+	7850 5750 7950 5750
+$Comp
+L Connector:Conn_01x02_Female J51
+U 1 1 62377B88
+P 8150 5750
+F 0 "J51" H 8100 5600 50  0000 R CNN
+F 1 "C_01x02" H 8150 5900 50  0000 C CNN
+F 2 "spectrometer_core:1x02_Vert_P2.00_Molex_Micro-Latch" H 8150 5750 50  0001 C CNN
+F 3 "~" H 8150 5750 50  0001 C CNN
+	1    8150 5750
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name spectrometer_core)(type Legacy)(uri ${KIPRJMOD}/../../spectrometer_core.lib)(options "")(descr ""))
+)

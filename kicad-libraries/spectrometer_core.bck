@@ -1,0 +1,19 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LMS33460
+F https://www.ti.com/lit/ds/symlink/lms33460.pdf
+$ENDCMP
+#
+$CMP NCP3066
+F https://www.onsemi.com/pdf/datasheet/ncp3066-d.pdf
+$ENDCMP
+#
+$CMP PowerBoost1000C
+F https://learn.adafruit.com/adafruit-powerboost-1000c-load-share-usb-charge-boost
+$ENDCMP
+#
+$CMP RN4678
+F https://ww1.microchip.com/downloads/en/DeviceDoc/RN4678-Data-Sheet-DS50002519F.pdf
+$ENDCMP
+#
+#End Doc Library

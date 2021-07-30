@@ -1,0 +1,8 @@
+# This gets rebuilt by kicad, no sense in tracking it
+fp-info-cache
+
+*-bak
+*.bak
+*_bak
+_saved*
+_autosave*
