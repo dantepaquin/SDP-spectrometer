@@ -10,56 +10,56 @@ In our design, we used [KiCad v5.1.0](https://www.kicad.org/blog/2019/03/KiCad-5
 While our design uses five separate boards connected with wires, all designs are located within a single KiCad project, "main.pro."
 
 ### Overview of directories:
-* Adafruit-PowerBoost-1000C-master/
-> Our design uses an existing power delivery board, and this folder contains the physical design documents that we referenced and used in our own.
+#### Adafruit-PowerBoost-1000C-master/
+Our design uses an existing power delivery board, and this folder contains the physical design documents that we referenced and used in our own.
 
-* Backup/
-> An almost-empty folder used for managing local backups and versioining. Can be removed.
+#### Backup/
+An almost-empty folder used for managing local backups and versioining. Can be removed.
 
-* RN4678dev/
-> This contains a kicad project and its design files for a development board, opening the SMD footprint to machine headers. These are not necessary for the final design.
+#### RN4678dev/
+This contains a kicad project and its design files for a development board, opening the SMD footprint to machine headers. These are not necessary for the final design.
 
-* Renders/
-> This contains PDF views of the current PCBs, shown with a small selection of layers.
+#### Renders/
+This contains PDF views of the current PCBs, shown with a small selection of layers.
 
-* SC70-Dev/
-> This is a development board used for the SC70 footprint, allowing breadboard verification of our systems. This contains a kicad project with the scematic and PCB files.
+#### SC70-Dev/
+This is a development board used for the SC70 footprint, allowing breadboard verification of our systems. This contains a kicad project with the scematic and PCB files.
 
-* Separate/
-> This directory contains subdirectories for each of the five PCBs of our design, which allowed us to manufacture individual boards rather than the full set. This also includes the gerbers used to manufacture the initial run of boards. 
+#### Separate/
+This directory contains subdirectories for each of the five PCBs of our design, which allowed us to manufacture individual boards rather than the full set. This also includes the gerbers used to manufacture the initial run of boards. 
 
-* Wiring Diagram/
-> This was a development project to identify and plan the necessary connections between the components of our design. It exists for reference, and has no physical form.
+#### Wiring Diagram/
+This was a development project to identify and plan the necessary connections between the components of our design. It exists for reference, and has no physical form.
 
-* spectrometer_core.pretty/
-> This is the footprint library directory, implementing the physical dimensions and connections of each device used in our design.
+#### spectrometer_core.pretty/
+This is the footprint library directory, implementing the physical dimensions and connections of each device used in our design.
 
-* fp-lib-table
-> This file tells KiCad how to associate the symbols in our schematic with the footprints in spectrometer_core.pretty.
+#### fp-lib-table
+This file tells KiCad how to associate the symbols in our schematic with the footprints in spectrometer_core.pretty.
 
-* main-cache.lib
-> This file keeps track of all of the symbols used in the schematic.
+#### main-cache.lib
+This file keeps track of all of the symbols used in the schematic.
 
-* main.kicad_pcb
-> This is the main PCB file, which is used to design and lay out the footprints into their physical form.
+#### main.kicad_pcb
+This is the main PCB file, which is used to design and lay out the footprints into their physical form.
 
-* main.pro
-> **This is the main project file of the spectrometer.** Opening this with kicad will give you access to design and change the footprints, symbols, schematics, and PCBs of the design.
+#### main.pro
+**This is the main project file of the spectrometer.** Opening this with kicad will give you access to design and change the footprints, symbols, schematics, and PCBs of the design.
 
-* main.sch
-> This is the main schematic file, used to establish connections between the components of the design.
+#### main.sch
+This is the main schematic file, used to establish connections between the components of the design.
 
-* spectrometer_core.bck
-> This is a local backup of the spectrometer_core.dcm file, and can be removed.
+#### spectrometer_core.bck
+This is a local backup of the spectrometer_core.dcm file, and can be removed.
 
-* spectrometer_core.dcm
-> This keeps track of any documentation we added to the symbol library.
+#### spectrometer_core.dcm
+This keeps track of any documentation we added to the symbol library.
 
-* spectrometer_core.lib
-> This is our main symbol library, used to represent the components as used on our schematic.
+#### spectrometer_core.lib
+This is our main symbol library, used to represent the components as used on our schematic.
 
-* sym-lib-table
-> This keeps track of the symbol libraries used in the main project.
+#### sym-lib-table
+This keeps track of the symbol libraries used in the main project.
 
 
 
@@ -69,26 +69,26 @@ Our project uses a [TeensyLC](https://www.pjrc.com/teensy/teensyLC.html) running
 
 ### Overview of directories:
 
-* Bluetooth/
-> This directory contains the currnent state of the bluetooth library implementation. The files include CircularBuffer.c/h, used for UART communication; RN4678.cpp/h, the main library file for the RN4678 bluetooth module; and RN4678_Command.h, a file containing all of the available bluetooth commands.
+#### Bluetooth/
+This directory contains the currnent state of the bluetooth library implementation. The files include CircularBuffer.c/h, used for UART communication; RN4678.cpp/h, the main library file for the RN4678 bluetooth module; and RN4678_Command.h, a file containing all of the available bluetooth commands.
 
-* Examples/
-> This directory includes arduino sketches used to verify both the hardware and minor software usage in our design. These will allow basic back-and-forth, following PC -> USB -> Teesny -> UART -> RN4678 -> Bluetooth -> Phone
+#### Examples/
+This directory includes arduino sketches used to verify both the hardware and minor software usage in our design. These will allow basic back-and-forth, following PC -> USB -> Teesny -> UART -> RN4678 -> Bluetooth -> Phone
 
-* TeesnyMain/
-> This is the main directory of code running on the TeensyLC, TeensyMain.ino, and includes state machines and libraries used in our design.  
+#### TeesnyMain/
+This is the main directory of code running on the TeensyLC, TeensyMain.ino, and includes state machines and libraries used in our design.  
 
-* Adafruit_SSD1306.cpp/h
-> This is an open library by Adafruit designed for our OLED screen, based on the SSD1306 driver IC.
+#### Adafruit_SSD1306.cpp/h
+This is an open library by Adafruit designed for our OLED screen, based on the SSD1306 driver IC.
 
-* FiniteStateMachine.cpp/h
-> This is an old backup of the driving state machine of our microcontroller. The updated version is in TeensyMain/
+#### FiniteStateMachine.cpp/h
+This is an old backup of the driving state machine of our microcontroller. The updated version is in TeensyMain/
 
-* LED.cpp/h
-> These files are basic LED drivers for arduino, and can be ignored.
+#### LED.cpp/h
+These files are basic LED drivers for arduino, and can be ignored.
 
-* RN4678_Command.h
-> This is a backup of the same file located in Bluetooth/. Both files include usage documentation inside
+#### RN4678_Command.h
+This is a backup of the same file located in Bluetooth/. Both files include usage documentation inside
 
-* TeensyMain.ino
-> This is an old backup of the main arduino sketch within TeensyMain/, and can be ignored.
+#### TeensyMain.ino
+This is an old backup of the main arduino sketch within TeensyMain/, and can be ignored.
